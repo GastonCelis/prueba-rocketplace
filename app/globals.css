@@ -1,0 +1,58 @@
+:root {
+  --texto: #1d1d1f;
+  --suave: #6b6b70;
+  --borde: #e2e2e6;
+  --fondo: #ffffff;
+  --acento: #1f5fbf;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+main { max-width: 1000px; margin: 0 auto; padding: 24px 16px; }
+
+h1 { margin: 0; font-size: 1.5rem; }
+
+button, .boton, select, input {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--fondo);
+  color: var(--texto);
+}
+button, .boton { cursor: pointer; text-decoration: none; }
+button[type="submit"], .boton { background: var(--acento); border-color: var(--acento); color: #fff; }
+
+.encabezado, .barra, .paginacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.encabezado { margin-bottom: 20px; }
+.encabezado form { display: flex; gap: 8px; align-items: center; }
+.tienda, .usuario { color: var(--suave); margin: 4px 0 0; }
+.barra { margin-bottom: 12px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--borde); }
+th { color: var(--suave); font-weight: 600; }
+.numero { text-align: right; font-variant-numeric: tabular-nums; }
+.vacio { text-align: center; color: var(--suave); padding: 32px; }
+
+.paginacion { margin-top: 16px; color: var(--suave); }
+.paginacion a { color: var(--acento); }
+
+.login { max-width: 360px; padding-top: 80px; }
+.login form { display: grid; gap: 12px; margin-top: 16px; }
+.login label { display: grid; gap: 4px; }
+.error { color: #b3261e; margin: 0; }

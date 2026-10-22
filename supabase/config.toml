@@ -1,0 +1,47 @@
+# Configuración de Supabase LOCAL (Docker). Este proyecto no se enlaza a ningún proyecto remoto.
+# Las claves que no aparecen aquí usan los valores por defecto del CLI.
+project_id = "pedidos-multitienda"
+
+# Puertos en la serie 553xx (no 543xx, los del CLI por defecto) para poder convivir con otros
+# proyectos de Supabase local que ya ocupan 54321-54327. `npm run env:local` lee los puertos reales.
+[api]
+enabled = true
+port = 55321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+# Máximo de filas por respuesta de la API. La exportación CSV pide lotes de este tamaño.
+max_rows = 1000
+
+[db]
+port = 55322
+shadow_port = 55320
+major_version = 17
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[studio]
+enabled = true
+port = 55323
+
+[local_smtp]
+enabled = true
+port = 55324
+
+[analytics]
+enabled = true
+port = 55327
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000"]
+
+# Los usuarios los crea el seed; la app no ofrece registro. Ojo: esto va en [auth], no en
+# [auth.email]: allí `enable_signup = false` apaga el proveedor de email entero y el login falla.
+enable_signup = false
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
